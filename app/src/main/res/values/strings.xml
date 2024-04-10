@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Android_Demo</string>
+    <string name="loggedIn">Welcome, Please Log in</string>
+    <string name="signedOut">Logging in successfully</string>
+    <string name="log_me_in">Log me in</string>
+    <string name="sign_me_out">Sign me out</string>
 </resources>
