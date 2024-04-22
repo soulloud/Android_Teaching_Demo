@@ -1,4 +1,4 @@
-package com.bf.androiddemo.recyclerview_fragment;
+package com.bf.androiddemo.fragments.transaction_fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;

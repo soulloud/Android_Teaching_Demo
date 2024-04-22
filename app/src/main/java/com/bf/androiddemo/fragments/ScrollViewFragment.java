@@ -1,4 +1,4 @@
-package com.bf.androiddemo;
+package com.bf.androiddemo.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bf.androiddemo.R;
+
 public class ScrollViewFragment extends Fragment {
     Button backButton;
     @Nullable
@@ -18,12 +20,7 @@ public class ScrollViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_scroll_view, container, false);
 
         backButton = view.findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(new HomeFragment());
-            }
-        });
+        backButton.setOnClickListener(v -> loadFragment(new HomeFragment()));
 
         return view;
     }
@@ -32,6 +29,7 @@ public class ScrollViewFragment extends Fragment {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, fragment)
+                .addToBackStack("ScrollView")
                 .commit();
     }
 }

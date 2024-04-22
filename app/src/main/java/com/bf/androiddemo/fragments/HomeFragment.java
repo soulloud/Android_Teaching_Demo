@@ -1,4 +1,4 @@
-package com.bf.androiddemo;
+package com.bf.androiddemo.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bf.androiddemo.recyclerview_fragment.TransactionFragment;
+import com.bf.androiddemo.R;
 
 public class HomeFragment extends Fragment {
 
@@ -34,17 +34,13 @@ public class HomeFragment extends Fragment {
     }
 
     private void bindButton(Button button, Fragment fragment){
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(fragment);
-            }
-        });
+        button.setOnClickListener(v -> loadFragment(fragment));
     }
     private void loadFragment(Fragment fragment) {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, fragment)
+                .addToBackStack("Home")
                 .commit();
     }
 }

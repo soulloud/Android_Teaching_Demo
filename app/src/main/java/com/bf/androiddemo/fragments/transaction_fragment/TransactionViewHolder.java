@@ -1,4 +1,4 @@
-package com.bf.androiddemo.recyclerview_fragment;
+package com.bf.androiddemo.fragments.transaction_fragment;
 
 import android.view.View;
 import android.widget.TextView;

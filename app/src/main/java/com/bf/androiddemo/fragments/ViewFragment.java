@@ -1,4 +1,4 @@
-package com.bf.androiddemo;
+package com.bf.androiddemo.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bf.androiddemo.R;
 import com.google.android.material.materialswitch.MaterialSwitch;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ViewFragment extends Fragment {
@@ -31,18 +31,11 @@ public class ViewFragment extends Fragment {
         toggleText = view.findViewById(R.id.toggleText);
         textInput = view.findViewById(R.id.text_input);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(new HomeFragment());
-            }
-        });
+        backButton.setOnClickListener(v -> loadFragment(new HomeFragment()));
 
-        switchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (switchButton.isChecked()){
-                    toggleText.setText(R.string.label_checked);
+        switchButton.setOnClickListener(v -> {
+            if (switchButton.isChecked()){
+                toggleText.setText(R.string.label_checked);
 //                    Snackbar.make(view, R.string.label_checked, Snackbar.LENGTH_LONG)
 //                            .setAction("Retry", new View.OnClickListener() {
 //                                @Override
@@ -51,10 +44,9 @@ public class ViewFragment extends Fragment {
 //                                }
 //                            })
 //                            .show();
-                } else {
-                    toggleText.setText(R.string.label_unchecked);
+            } else {
+                toggleText.setText(R.string.label_unchecked);
 //                    Snackbar.make(view, R.string.label_unchecked, Snackbar.LENGTH_LONG).show();
-                }
             }
         });
 
@@ -67,6 +59,7 @@ public class ViewFragment extends Fragment {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, fragment)
+                .addToBackStack("View")
                 .commit();
     }
 }
